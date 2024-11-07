@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Arbres</title>
+
+    <script
+            id="sap-ui-bootstrap"
+            src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_belize"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-xx-bindingSyntax="complex"
+            data-sap-ui-resourceroots='{
+            "sap.ui.demo.treemanagement": "./"
+        }'>
+    </script>
+
+    <script>
+        sap.ui.require(["sap/ui/core/Core"], function(Core) {
+            Core.ready().then(function() {
+                new sap.ui.core.ComponentContainer({
+                    name: "sap.ui.demo.treemanagement",
+                    settings: {
+                        id: "treeManagement"
+                    },
+                    async: true
+                }).placeAt("content");
+            });
+        });
+    </script>
+</head>
+<body class="sapUiBody">
+<div id="content" role="main" aria-label="Tree Management Application"></div>
+</body>
+</html>

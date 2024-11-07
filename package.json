@@ -1,0 +1,20 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Tree Management SAPUI5 Frontend",
+  "main": "webapp/Component.js",
+  "scripts": {
+    "start": "node node_server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openui5/sap.m": "^1.108.0",
+    "@openui5/sap.ui.core": "^1.108.0",
+    "@openui5/themelib_sap_belize": "^1.108.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  }
+}
