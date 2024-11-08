@@ -6,6 +6,7 @@ sap.ui.define([
 
     return Controller.extend("sap.ui.demo.treemanagement.controller.Main", {
         onInit: function () {
+            // Define the model once and store it in an instance variable
             this.oModel = this.getOwnerComponent().getModel("treesModel");
             this.loadTreeData();
         },
@@ -16,6 +17,8 @@ sap.ui.define([
             const apiUrl = this.oModel.getProperty("/apiUrl");
             const sUrl = `${apiUrl}?page=${iCurrentPage}&size=${iPageSize}`;
 
+            console.log(`Fetching data from: ${sUrl}`);
+
             fetch(sUrl)
                 .then(response => {
                     if (!response.ok) {
@@ -25,9 +28,13 @@ sap.ui.define([
                 })
                 .then(data => {
                     if (data && data.content) {
+                        // Update the model properties with the fetched data
                         this.oModel.setProperty("/trees", data.content);
                         this.oModel.setProperty("/totalPages", data.totalPages);
                         this.oModel.setProperty("/totalElements", data.totalElements);
+
+                        // Display the current page and total pages for pagination verification
+                        console.log(`Page ${iCurrentPage + 1} sur ${data.totalPages}`);
                     } else {
                         MessageToast.show("Erreur: Les données reçues sont incorrectes.");
                     }
@@ -42,6 +49,10 @@ sap.ui.define([
             const iCurrentPage = this.oModel.getProperty("/currentPage");
             const iTotalPages = this.oModel.getProperty("/totalPages");
 
+            console.log("Current Page:", iCurrentPage);
+            console.log("Total Pages:", iTotalPages);
+
+            // Move to the next page if available
             if (iCurrentPage < iTotalPages - 1) {
                 this.oModel.setProperty("/currentPage", iCurrentPage + 1);
                 this.loadTreeData();
@@ -53,6 +64,9 @@ sap.ui.define([
         onPreviousPage: function () {
             const iCurrentPage = this.oModel.getProperty("/currentPage");
 
+            console.log("Current Page:", iCurrentPage);
+
+            // Move to the previous page if available
             if (iCurrentPage > 0) {
                 this.oModel.setProperty("/currentPage", iCurrentPage - 1);
                 this.loadTreeData();

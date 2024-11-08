@@ -5,67 +5,79 @@
     <App>
         <Page title="Liste des Arbres">
             <content>
-                <Table id="treeTable" items="{treesModel>/trees}">
+                <Table id="treeTable"
+                       items="{treesModel>/trees}"
+                       fixedLayout="Strict"
+                       sticky="ColumnHeaders"
+                       width="100%"
+                       class="sapUiResponsiveMargin sapUiMediumMarginBottom">
+
                     <headerToolbar>
-                        <Toolbar>
-                            <Title text="Données Brutes des Arbres" level="H2"/>
+                        <Toolbar class="sapUiResponsivePadding">
+                            <Title text="🌳 Données Brutes des Arbres" level="H2" class="sapUiSmallMargin"/>
                         </Toolbar>
                     </headerToolbar>
+
                     <columns>
-                        <Column><Text text="ID Base"/></Column>
-                        <Column><Text text="Type Emplacement"/></Column>
-                        <Column><Text text="Domanialité"/></Column>
-                        <Column><Text text="Arrondissement"/></Column>
-                        <Column><Text text="Complément Adresse"/></Column>
-                        <Column><Text text="Numéro"/></Column>
-                        <Column><Text text="Adresse"/></Column>
-                        <Column><Text text="ID Emplacement"/></Column>
-                        <Column><Text text="Libellé Français"/></Column>
-                        <Column><Text text="Genre"/></Column>
-                        <Column><Text text="Espèce"/></Column>
-                        <Column><Text text="Variété ou Cultivar"/></Column>
-                        <Column><Text text="Circonférence (cm)"/></Column>
-                        <Column><Text text="Hauteur (m)"/></Column>
-                        <Column><Text text="Stade de Développement"/></Column>
-                        <Column><Text text="Remarquable"/></Column>
-                        <Column><Text text="Longitude"/></Column>
-                        <Column><Text text="Latitude"/></Column>
+                        <Column><Text text="ID Base" class="sapMTextBold"/></Column>
+                        <Column><Text text="Type Emplacement" class="sapMTextBold"/></Column>
+                        <Column><Text text="Domanialité" class="sapMTextBold"/></Column>
+                        <Column><Text text="Arrondissement" class="sapMTextBold"/></Column>
+                        <Column><Text text="Complément Adresse" class="sapMTextBold"/></Column>
+                        <Column><Text text="Numéro" class="sapMTextBold"/></Column>
+                        <Column><Text text="Adresse" class="sapMTextBold"/></Column>
+                        <Column><Text text="ID Emplacement" class="sapMTextBold"/></Column>
+                        <Column><Text text="Libellé Français" class="sapMTextBold"/></Column>
+                        <Column><Text text="Genre" class="sapMTextBold"/></Column>
+                        <Column><Text text="Espèce" class="sapMTextBold"/></Column>
+                        <Column><Text text="Variété ou Cultivar" class="sapMTextBold"/></Column>
+                        <Column><Text text="Circonférence (cm)" class="sapMTextBold"/></Column>
+                        <Column><Text text="Hauteur (m)" class="sapMTextBold"/></Column>
+                        <Column><Text text="Stade de Développement" class="sapMTextBold"/></Column>
+                        <Column><Text text="Remarquable" class="sapMTextBold"/></Column>
+                        <Column><Text text="Longitude" class="sapMTextBold"/></Column>
+                        <Column><Text text="Latitude" class="sapMTextBold"/></Column>
                     </columns>
 
                     <items>
                         <ColumnListItem>
                             <cells>
-                                <Text text="{treesModel>idbase}"/>
-                                <Text text="{treesModel>typeemplacement}"/>
-                                <Text text="{treesModel>domanialite}"/>
-                                <Text text="{treesModel>arrondissement}"/>
-                                <Text text="{treesModel>complementadresse}"/>
-                                <Text text="{treesModel>numero}"/>
-                                <Text text="{treesModel>adresse}"/>
-                                <Text text="{treesModel>idemplacement}"/>
-                                <Text text="{treesModel>libellefrancais}"/>
-                                <Text text="{treesModel>genre}"/>
-                                <Text text="{treesModel>espece}"/>
-                                <Text text="{treesModel>varieteoucultivar}"/>
-                                <Text text="{= ${treesModel>circonferenceencm} + ' cm'}"/>
-                                <Text text="{= ${treesModel>hauteurenm} + ' m'}"/>
-                                <Text text="{treesModel>stadedeveloppement}"/>
-                                <Text text="{treesModel>remarquable}"/>
-                                <Text text="{treesModel>geoPoint2d/lon}"/>
-                                <Text text="{treesModel>geoPoint2d/lat}"/>
+                                <Text text="{treesModel>idbase}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>typeemplacement}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>domanialite}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>arrondissement}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>complementadresse}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>numero}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>adresse}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>idemplacement}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>libellefrancais}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>genre}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>espece}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>varieteoucultivar}" class="sapUiTinyMargin"/>
+                                <Text text="{= ${treesModel>circonferenceencm} + ' cm'}" class="sapUiTinyMargin"/>
+                                <Text text="{= ${treesModel>hauteurenm} + ' m'}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>stadedeveloppement}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>remarquable}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>geoPoint2d/lon}" class="sapUiTinyMargin"/>
+                                <Text text="{treesModel>geoPoint2d/lat}" class="sapUiTinyMargin"/>
                             </cells>
                         </ColumnListItem>
                     </items>
                 </Table>
 
-                <Toolbar>
+                <!-- Apply the custom CSS class here -->
+                <Toolbar class="paginationToolbar">
                     <Button
-                            text="Précédent"
+                            icon="sap-icon://navigation-left-arrow"
+                            type="Transparent"
+                            tooltip="Page précédente"
                             press="onPreviousPage"
                             enabled="{= ${treesModel>/currentPage} > 0 }" />
-                    <Text text="{= 'Page ' + (${treesModel>/currentPage} + 1) + ' sur ' + ${treesModel>/totalPages} }" />
+                    <Text text="{= 'Page ' + (${treesModel>/currentPage} + 1) + ' sur ' + ${treesModel>/totalPages} }" class="sapUiTinyMargin sapMTextBold"/>
                     <Button
-                            text="Suivant"
+                            icon="sap-icon://navigation-right-arrow"
+                            type="Transparent"
+                            tooltip="Page suivante"
                             press="onNextPage"
                             enabled="{= ${treesModel>/currentPage} &lt; (${treesModel>/totalPages} - 1) }" />
                 </Toolbar>
